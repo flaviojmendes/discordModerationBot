@@ -1,9 +1,11 @@
+import os
+
 from clarifai.rest import ClarifaiApp
 
 
 async def moderate_image(message):
     url = message.attachments[0].url
-    app = ClarifaiApp(api_key='b19e85e194ee41fe8670280be7a967a0')
+    app = ClarifaiApp(api_key=os.environ['CLARIFAI_API_KEY'])
     #General model
     model = app.models.get('d16f390eb32cad478c7ae150069bd2c6')
 
